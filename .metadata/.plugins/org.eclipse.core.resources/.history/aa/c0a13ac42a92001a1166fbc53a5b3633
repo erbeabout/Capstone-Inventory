@@ -1,0 +1,116 @@
+package com.inventory.app.model;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="work_orders")
+public class WorkOrders {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	private String name;
+	private double acres;
+	private String product;
+	private double amount;
+	private boolean isComplete;
+	
+	
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
+
+	@ManyToMany
+	@JoinTable(name="work_order_products",
+				joinColumns = @JoinColumn(name="work_order_id"),
+				inverseJoinColumns = @JoinColumn(name="product_id")
+			)
+	private List<Products> workOrderProducts;
+	
+	@ManyToMany
+	@JoinTable(name="completed_orders",
+				joinColumns = @JoinColumn(name="work_order_id"),
+				inverseJoinColumns = @JoinColumn(name="product_id")
+			)
+	private List<Products> completedOrders;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public double getAcres() {
+		return acres;
+	}
+
+	public void setAcres(double acres) {
+		this.acres = acres;
+	}
+
+	public List<Products> getWorkOrderProducts() {
+		return workOrderProducts;
+	}
+
+	public void setWorkOrderProducts(List<Products> workOrderProducts) {
+		this.workOrderProducts = workOrderProducts;
+	}
+
+	public List<Products> getCompletedOrders() {
+		return completedOrders;
+	}
+
+	public void setCompletedOrders(List<Products> completedOrders) {
+		this.completedOrders = completedOrders;
+	}
+
+	public boolean isComplete() {
+		return isComplete;
+	}
+
+	public void setComplete(boolean isComplete) {
+		this.isComplete = isComplete;
+	}
+	
+	public boolean getIsComplete() {
+		return isComplete;
+	}
+
+	public void setIsComplete(boolean isComplete) {
+		this.isComplete = isComplete;
+	}
+
+	public 
+
+}

@@ -1,0 +1,49 @@
+package com.inventory.app.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.inventory.app.model.Products;
+import com.inventory.app.repository.ProductRepository;
+
+@Service
+@Transactional
+public class ProductServiceImpl implements ProductService {
+	private ProductRepository productRepository;
+
+	@Autowired
+	public ProductServiceImpl(ProductRepository productRepository) {
+		super();
+		this.productRepository = productRepository;
+	}
+	
+	@Override
+	public List<Products> findAll() {
+		return  productRepository.findAll();
+	}
+	
+	@Override
+	public void save(Products product) {
+        productRepository.save(product);	
+	}
+	
+	@Override
+	public Optional<Products> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Optional<Products> findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

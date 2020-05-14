@@ -1,0 +1,63 @@
+package com.inventory.app.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.inventory.app.model.Products;
+import com.inventory.app.model.WorkOrders;
+import com.inventory.app.repository.WorkOrderRepository;
+
+	@Service
+	@Transactional
+	public class WorkOrderServiceImpl implements WorkOrderService {
+		private WorkOrderRepository workOrderRepository;
+		@Autowired
+		public WorkOrderServiceImpl (WorkOrderRepository workOrderRepository) {
+			super();
+			this.workOrderRepository = workOrderRepository;
+		}
+
+		@Override
+		public Optional<Products> findById(Long id) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Optional<WorkOrders> findByName(String name) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public List<WorkOrders> findAll() {
+			// TODO Auto-generated method stub
+			return workOrderRepository.findAll();
+		}
+
+		@Override
+		public void delete(Long id) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	
+
+		public WorkOrderRepository getWorkOrderRepository() {
+			return workOrderRepository;
+		}
+
+		public void setWorkOrderRepository(WorkOrderRepository workOrderRepository) {
+			this.workOrderRepository = workOrderRepository;
+		}
+
+		@Override
+		public void save(WorkOrders workorder) {
+			workOrderRepository.save(workorder);
+			
+		}
+}

@@ -1,0 +1,16 @@
+package com.inventory.app.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.inventory.app.model.Products;
+import com.inventory.app.model.WorkOrders;
+
+public interface WorkOrderService {
+	List<WorkOrders> findById(Long id);
+	Optional<WorkOrders> findByName(String name);
+	List<WorkOrders> findAll();
+	void delete(Long id);
+	void save(WorkOrders workorder);
+
+}

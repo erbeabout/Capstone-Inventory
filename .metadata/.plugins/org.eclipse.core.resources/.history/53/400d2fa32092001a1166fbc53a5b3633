@@ -1,0 +1,16 @@
+package com.inventory.app.service;
+
+import java.util.Optional;
+
+import com.inventory.app.model.Products;
+
+public interface ProductService {
+
+	Optional<Products> findById(Long id);
+	Optional<Products> findByName(String name);
+	Optional<Products> findAll();
+	void delete(Long id);
+	void save(Products product);
+	
+
+}

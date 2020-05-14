@@ -1,0 +1,3 @@
+1588642275305	Rename compilation unit 'WorkOrderImpl.java'
+1588642560658	Encapsulate field 'workOrderRepository'
+1589052141176	Encapsulate field 'isComplete'

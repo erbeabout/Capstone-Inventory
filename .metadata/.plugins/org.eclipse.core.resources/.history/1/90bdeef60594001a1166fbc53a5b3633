@@ -1,0 +1,118 @@
+package com.inventory.app.model;
+
+import java.util.List;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="products")
+public class Products {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	private String name;
+	private double amount;
+	private String dateEntered;
+	private String whoEntered;
+	private String price;
+	private String manufacturer;
+	private String image;
+	@OneToOne
+	private Users postedBy;
+	@ManyToMany(mappedBy = "workOrderProducts")
+	private List<WorkOrders> workOrders;
+
+	@ManyToMany(mappedBy = "completedOrders")
+	private List<WorkOrders> completedProductOrders;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public String getDateEntered() {
+		return dateEntered;
+	}
+
+	public void setDateEntered(String dateEntered) {
+		this.dateEntered = dateEntered;
+	}
+
+	public String getWhoEntered() {
+		return whoEntered;
+	}
+
+	public void setWhoEntered(String whoEntered) {
+		this.whoEntered = whoEntered;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getManufacturer() {
+		return manufacturer;
+	}
+
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public Users getPostedBy() {
+		return postedBy;
+	}
+
+	public void setPostedBy(Users postedBy) {
+		this.postedBy = postedBy;
+	}
+
+	public List<WorkOrders> getWorkOrders() {
+		return workOrders;
+	}
+
+	public void setWorkOrders(List<WorkOrders> workOrders) {
+		this.workOrders = workOrders;
+	}
+
+	public List<WorkOrders> getCompletedProductOrders() {
+		return completedProductOrders;
+	}
+
+	public void setCompletedProductOrders(List<WorkOrders> completedProductOrders) {
+		this.completedProductOrders = completedProductOrders;
+	}
+	
+	
+}
